@@ -6,14 +6,16 @@ export default function NewJerseys() {
     <section id="nuevas-camisetas" className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-24">
       <div className="flex items-end justify-between gap-4 border-b border-line pb-6">
         <h2 className="font-display text-4xl tracking-tight md:text-6xl">NUEVAS CAMISETAS</h2>
-        <span className="hidden font-display text-sm tracking-widest text-ink-soft sm:inline">
-          04 REFERENCIAS
+        <span className="hidden text-xs uppercase tracking-widest text-ink-soft sm:inline">
+          Colección inicial
         </span>
       </div>
 
-      <div className="mt-2 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-4 md:gap-x-6">
+      <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-6">
         {newJerseys.map((product, i) => (
-          <ProductCard key={product.slug} product={product} index={i} />
+          <div key={product.slug} className={i % 2 === 1 ? "md:mt-14" : undefined}>
+            <ProductCard product={product} tone={i === 2 ? "dark" : "light"} />
+          </div>
         ))}
       </div>
     </section>

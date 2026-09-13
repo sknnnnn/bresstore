@@ -1,32 +1,35 @@
-import JerseyPlaceholder from "./JerseyPlaceholder";
+import PhotoTile from "./PhotoTile";
 import type { Product } from "@/lib/demo-data";
 
-export default function ProductCard({ product, index }: { product: Product; index: number }) {
+export default function ProductCard({
+  product,
+  tone,
+}: {
+  product: Product;
+  tone?: "light" | "dark";
+}) {
   return (
-    <article className="group border-t border-line pt-4">
-      <div className="relative flex aspect-[4/5] items-center justify-center bg-[#eae7dd] px-6">
-        <span className="absolute left-3 top-3 font-display text-xs tracking-widest text-ink-soft">
-          0{index + 1}
-        </span>
-        <span className="absolute right-3 top-3 text-[10px] uppercase tracking-wider text-ink-soft">
-          {product.season}
-        </span>
-        <JerseyPlaceholder
-          colors={product.colors}
-          className="h-4/5 w-auto transition-transform duration-300 group-hover:scale-[1.04]"
-        />
-      </div>
+    <article className="group">
+      <a href="#" className="block">
+        <PhotoTile colors={product.colors} tone={tone} className="aspect-[3/4]" />
+      </a>
 
       <div className="mt-3 flex items-start justify-between gap-3">
         <div>
-          <p className="text-[11px] uppercase tracking-wider text-ink-soft">{product.club}</p>
-          <h3 className="font-display text-lg leading-tight">{product.name}</h3>
+          <p className="text-[11px] uppercase tracking-wider text-ink-soft">
+            {product.club} · {product.season}
+          </p>
+          <h3 className="font-display text-xl leading-tight">{product.name}</h3>
         </div>
-        <div className="text-right">
-          <p className="font-display text-lg">{product.priceDemo}</p>
-          <p className="text-[10px] uppercase tracking-wider text-ink-soft">precio demo</p>
-        </div>
+        <p className="shrink-0 pt-1 text-xs text-ink-soft">{product.priceDemo}</p>
       </div>
+
+      <a
+        href="#"
+        className="mt-2 inline-block text-xs uppercase tracking-wider text-ink-soft underline decoration-line underline-offset-4 transition-colors hover:text-ink"
+      >
+        Ver camiseta
+      </a>
     </article>
   );
 }

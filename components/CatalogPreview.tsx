@@ -1,5 +1,5 @@
 import { clubs, selections } from "@/lib/demo-data";
-import JerseyPlaceholder from "./JerseyPlaceholder";
+import PhotoTile from "./PhotoTile";
 
 const preview = [...clubs.map((c) => c.colors), ...selections.map((s) => s.colors)];
 
@@ -22,12 +22,11 @@ export default function CatalogPreview() {
 
         <div className="mt-8 flex gap-4 overflow-x-auto pb-2">
           {preview.map((colors, i) => (
-            <div
+            <PhotoTile
               key={i}
-              className="flex h-32 w-24 shrink-0 items-center justify-center bg-[#eae7dd] sm:h-40 sm:w-28"
-            >
-              <JerseyPlaceholder colors={colors} className="h-4/5 w-auto" />
-            </div>
+              colors={colors}
+              className="h-40 w-28 shrink-0 sm:h-48 sm:w-32"
+            />
           ))}
         </div>
 

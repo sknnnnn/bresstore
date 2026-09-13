@@ -1,15 +1,16 @@
+import Grain from "./Grain";
 import JerseyPlaceholder from "./JerseyPlaceholder";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-line">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 md:grid-cols-12 md:items-end">
-        <div className="order-2 px-5 pb-10 pt-8 md:order-1 md:col-span-7 md:px-8 md:pb-20 md:pt-16">
-          <span className="inline-flex items-center gap-2 border border-ink/20 px-3 py-1 text-xs font-medium uppercase tracking-wider text-ink-soft">
-            Temporada 25/26
-          </span>
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 md:grid-cols-12">
+        <div className="order-2 flex flex-col justify-center px-5 pb-10 pt-8 md:order-1 md:col-span-7 md:px-8 md:py-16">
+          <p className="text-xs uppercase tracking-widest text-ink-soft">
+            Temporada 25/26 · Colección inicial
+          </p>
 
-          <h1 className="mt-5 font-display text-[15vw] leading-[0.9] tracking-tight text-balance md:text-[6.4vw]">
+          <h1 className="mt-5 font-display text-[15vw] leading-[0.9] tracking-tight text-balance md:text-[6.2vw]">
             CAMISETAS
             <br />
             PARA LOS QUE
@@ -17,7 +18,7 @@ export default function Hero() {
             VIVEN EL FÚTBOL.
           </h1>
 
-          <div className="mt-8 flex items-center gap-6">
+          <div className="mt-8">
             <a
               href="#nuevas-camisetas"
               className="inline-flex items-center gap-2 border-b-2 border-ink pb-1 font-display text-lg tracking-wide"
@@ -25,21 +26,18 @@ export default function Hero() {
               Ver camisetas
               <span aria-hidden>→</span>
             </a>
-            <span className="hidden text-xs uppercase tracking-wider text-ink-soft sm:inline">
-              Clubes · Selecciones · Retro
-            </span>
           </div>
         </div>
 
-        <div className="order-1 relative flex items-center justify-center bg-ink px-8 py-12 md:order-2 md:col-span-5 md:h-full md:py-0">
-          <span className="absolute left-5 top-5 font-display text-sm tracking-widest text-accent">
-            N.º 10
-          </span>
+        <div className="group order-1 relative min-h-[70vw] overflow-hidden bg-ink sm:min-h-[50vw] md:order-2 md:col-span-5 md:min-h-0">
+          <Grain opacity={0.09} />
           <JerseyPlaceholder
             colors={{ primary: "#f4f2ec", secondary: "#14130f", trim: "#cbff3d" }}
-            number="10"
-            className="h-56 w-auto md:h-[26rem]"
+            className="absolute inset-0 m-auto h-[78%] w-auto -translate-x-[4%] rotate-[-2deg] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
+          <p className="absolute bottom-5 left-5 right-5 text-[11px] uppercase tracking-wider text-paper/70">
+            N.º 10 — 25/26
+          </p>
         </div>
       </div>
     </section>

@@ -2,11 +2,9 @@ import type { JerseyColors } from "@/lib/demo-data";
 
 export default function JerseyPlaceholder({
   colors,
-  number,
   className,
 }: {
   colors: JerseyColors;
-  number?: string;
   className?: string;
 }) {
   return (
@@ -28,19 +26,6 @@ export default function JerseyPlaceholder({
       />
       <path d="M20 34 L2 66 L28 84 L40 70 Z" fill={colors.secondary} opacity="0.35" />
       <path d="M180 34 L198 66 L172 84 L160 70 Z" fill={colors.secondary} opacity="0.35" />
-      {number ? (
-        <text
-          x="100"
-          y="150"
-          textAnchor="middle"
-          fontFamily="var(--font-display)"
-          fontSize="64"
-          fill={colors.secondary}
-          opacity="0.9"
-        >
-          {number}
-        </text>
-      ) : null}
     </svg>
   );
 }

@@ -5,6 +5,7 @@
   --ink: #14130f;
   --ink-soft: #55534a;
   --line: #d9d6c9;
+  --surface: #eae6da;
   --accent: #cbff3d;
 }
 
@@ -13,6 +14,7 @@
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-line: var(--line);
+  --color-surface: var(--surface);
   --color-accent: var(--accent);
   --font-display: var(--font-anton);
   --font-sans: var(--font-inter);
