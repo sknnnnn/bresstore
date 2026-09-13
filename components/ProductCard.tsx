@@ -11,7 +11,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="mt-3 flex items-start justify-between gap-3">
         <div>
           <p className="text-[11px] uppercase tracking-wider text-paper/60">
-            {product.club} · {product.season}
+            {product.teamName} · {product.season}
           </p>
           <h3 className="font-display text-xl leading-tight">{product.name}</h3>
         </div>

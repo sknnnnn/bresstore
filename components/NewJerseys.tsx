@@ -1,5 +1,5 @@
-import { newJerseys } from "@/lib/demo-data";
-import ProductCard from "./ProductCard";
+import { products } from "@/lib/demo-data";
+import CatalogGrid from "./CatalogGrid";
 
 export default function NewJerseys() {
   return (
@@ -11,11 +11,7 @@ export default function NewJerseys() {
         </span>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 items-start gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-6">
-        {newJerseys.map((product) => (
-          <ProductCard key={product.slug} product={product} />
-        ))}
-      </div>
+      <CatalogGrid products={products} />
     </section>
   );
 }

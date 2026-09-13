@@ -1,31 +1,26 @@
+import Link from "next/link";
 import { clubs } from "@/lib/demo-data";
+import TeamIndexList from "./TeamIndexList";
 
 export default function ClubsSection() {
   return (
     <section id="clubes" className="border-t border-line bg-paper text-ink">
       <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-24">
-        <h2 className="font-display text-4xl tracking-tight md:text-6xl">CLUBES</h2>
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="font-display text-4xl tracking-tight md:text-6xl">CLUBES</h2>
+          <Link
+            href="/clubes"
+            className="hidden text-xs uppercase tracking-widest text-ink-soft transition-colors hover:text-ink sm:inline"
+          >
+            Ver todos →
+          </Link>
+        </div>
 
-        <ul className="mt-8 divide-y divide-line-ink border-t border-line-ink">
-          {clubs.map((club, i) => (
-            <li key={club.name} className="group flex items-center gap-4 py-5 md:gap-8">
-              <span className="w-8 shrink-0 font-display text-sm text-ink-soft md:w-14 md:text-base">
-                0{i + 1}
-              </span>
-              <span
-                className="h-8 w-2 shrink-0 md:h-10 md:w-3"
-                style={{ background: club.colors.primary }}
-                aria-hidden
-              />
-              <span className="font-display text-2xl leading-none tracking-tight transition-transform duration-200 group-hover:translate-x-1 md:text-4xl">
-                {club.name}
-              </span>
-              <span className="ml-auto hidden text-xs uppercase tracking-wider text-ink-soft sm:inline">
-                {club.country}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <TeamIndexList
+          items={clubs.map((c) => ({ slug: c.slug, name: c.name, meta: c.country, colors: c.colors }))}
+          basePath="/clubes"
+          tone="paper"
+        />
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Grain from "./Grain";
 import JerseyPlaceholder from "./JerseyPlaceholder";
 
@@ -19,13 +20,13 @@ export default function Hero() {
           </h1>
 
           <div className="mt-8">
-            <a
-              href="#nuevas-camisetas"
+            <Link
+              href="/camisetas"
               className="inline-flex items-center gap-2 border-b-2 border-paper pb-1 font-display text-lg tracking-wide"
             >
               Ver camisetas
               <span aria-hidden>→</span>
-            </a>
+            </Link>
           </div>
         </div>
 

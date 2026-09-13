@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { clubs, selections } from "@/lib/demo-data";
 import PhotoTile from "./PhotoTile";
 
@@ -11,13 +12,13 @@ export default function CatalogPreview() {
           <h2 className="font-display text-4xl tracking-tight md:text-6xl">
             TODAS LAS CAMISETAS
           </h2>
-          <a
-            href="#"
+          <Link
+            href="/camisetas"
             className="inline-flex items-center gap-2 border-b-2 border-paper pb-1 font-display text-lg tracking-wide"
           >
             Ver catálogo
             <span aria-hidden>→</span>
-          </a>
+          </Link>
         </div>
 
         <div className="mt-8 flex gap-4 overflow-x-auto pb-2">

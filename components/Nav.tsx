@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const LINKS = [
-  { label: "Camisetas", href: "#nuevas-camisetas" },
-  { label: "Clubes", href: "#clubes" },
-  { label: "Selecciones", href: "#selecciones" },
-  { label: "Retro", href: "#" },
+  { label: "Camisetas", href: "/camisetas" },
+  { label: "Clubes", href: "/clubes" },
+  { label: "Selecciones", href: "/selecciones" },
+  { label: "Retro", href: "/retro" },
 ];
 
 export default function Nav() {
@@ -15,19 +16,19 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-pitch-deep/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-8">
-        <a href="#" className="font-display text-2xl tracking-tight">
+        <Link href="/" className="font-display text-2xl tracking-tight">
           BRESSTORE
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wide">
           {LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-paper/60 transition-colors hover:text-paper"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -57,14 +58,14 @@ export default function Nav() {
       {open ? (
         <nav className="flex flex-col border-t border-line px-5 py-4 text-sm font-medium uppercase tracking-wide md:hidden">
           {LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               onClick={() => setOpen(false)}
               className="border-b border-line/70 py-3 last:border-none"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       ) : null}
