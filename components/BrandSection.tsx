@@ -1,9 +1,9 @@
 export default function BrandSection() {
   return (
-    <section className="relative border-t border-line bg-ink text-paper">
+    <section className="relative border-t border-line bg-pitch-deep text-paper">
       <div className="mx-auto max-w-[1400px] px-5 py-16 md:px-8 md:py-24">
         <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-widest">
-          <span className="text-accent">N.º 001</span>
+          <span className="text-paper/50">N.º 001</span>
           <span aria-hidden className="text-paper/30">—</span>
           <span className="text-paper/60">Recién arrancamos</span>
         </div>

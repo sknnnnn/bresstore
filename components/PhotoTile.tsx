@@ -15,7 +15,7 @@ export default function PhotoTile({
 }) {
   return (
     <div
-      className={`relative overflow-hidden ${tone === "dark" ? "bg-ink" : "bg-surface"} ${className ?? ""}`}
+      className={`relative overflow-hidden ${tone === "dark" ? "bg-pitch-deep" : "bg-paper"} ${className ?? ""}`}
     >
       <Grain opacity={tone === "dark" ? 0.09 : 0.06} />
       <JerseyPlaceholder

@@ -1,28 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f4f2ec;
-  --ink: #14130f;
-  --ink-soft: #55534a;
-  --line: #d9d6c9;
-  --surface: #eae6da;
-  --accent: #cbff3d;
+  --pitch: #1c2c1f;
+  --pitch-deep: #0f1810;
+  --paper: #f2ecdd;
+  --ink: #17160f;
+  --ink-soft: #55503f;
+  --line: rgba(242, 236, 221, 0.16);
+  --line-ink: rgba(23, 22, 15, 0.12);
 }
 
 @theme inline {
+  --color-pitch: var(--pitch);
+  --color-pitch-deep: var(--pitch-deep);
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-line: var(--line);
-  --color-surface: var(--surface);
-  --color-accent: var(--accent);
+  --color-line-ink: var(--line-ink);
   --font-display: var(--font-anton);
   --font-sans: var(--font-inter);
 }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--pitch);
+  color: var(--paper);
 }
 
 .text-balance {

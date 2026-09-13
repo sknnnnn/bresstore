@@ -3,19 +3,19 @@ const SOCIAL = ["Instagram", "TikTok", "Contacto"];
 
 export default function Footer() {
   return (
-    <footer className="mt-auto border-t border-line">
+    <footer className="mt-auto border-t border-line bg-pitch-deep">
       <div className="mx-auto max-w-[1400px] px-5 py-12 md:px-8">
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div>
             <p className="font-display text-2xl tracking-tight">BRESSTORE</p>
-            <p className="mt-2 max-w-xs text-sm text-ink-soft">
+            <p className="mt-2 max-w-xs text-sm text-paper/60">
               Camisetas para los que viven el fútbol.
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
             <div>
-              <p className="text-xs uppercase tracking-wider text-ink-soft">Tienda</p>
+              <p className="text-xs uppercase tracking-wider text-paper/50">Tienda</p>
               <ul className="mt-3 space-y-2 text-sm">
                 {NAV.map((item) => (
                   <li key={item}>
@@ -28,8 +28,8 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-wider text-ink-soft">Redes</p>
-              <ul className="mt-3 space-y-2 text-sm text-ink-soft">
+              <p className="text-xs uppercase tracking-wider text-paper/50">Redes</p>
+              <ul className="mt-3 space-y-2 text-sm text-paper/60">
                 {SOCIAL.map((item) => (
                   <li key={item}>{item} (próximamente)</li>
                 ))}
@@ -38,9 +38,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-line pt-6 text-xs text-ink-soft sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Bresstore. Proyecto en desarrollo.</p>
-          <p>Contenido e imágenes de esta página son de demostración.</p>
+        <div className="mt-10 border-t border-line pt-6">
+          <p className="text-xs uppercase tracking-widest text-paper/50">
+            Argentina — Football Culture — 2026
+          </p>
+          <div className="mt-3 flex flex-col gap-2 text-xs text-paper/50 sm:flex-row sm:items-center sm:justify-between">
+            <p>© 2026 Bresstore. Proyecto en desarrollo.</p>
+            <p>Contenido e imágenes de esta página son de demostración.</p>
+          </div>
         </div>
       </div>
     </footer>

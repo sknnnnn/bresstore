@@ -13,7 +13,7 @@ export default function CatalogPreview() {
           </h2>
           <a
             href="#"
-            className="inline-flex items-center gap-2 border-b-2 border-ink pb-1 font-display text-lg tracking-wide"
+            className="inline-flex items-center gap-2 border-b-2 border-paper pb-1 font-display text-lg tracking-wide"
           >
             Ver catálogo
             <span aria-hidden>→</span>
@@ -30,7 +30,7 @@ export default function CatalogPreview() {
           ))}
         </div>
 
-        <p className="mt-4 text-xs uppercase tracking-wider text-ink-soft">
+        <p className="mt-4 text-xs uppercase tracking-wider text-paper/50">
           Vista previa — catálogo completo en construcción
         </p>
       </div>

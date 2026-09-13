@@ -13,7 +13,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-line bg-pitch-deep/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-8">
         <a href="#" className="font-display text-2xl tracking-tight">
           BRESSTORE
@@ -24,7 +24,7 @@ export default function Nav() {
             <a
               key={link.label}
               href={link.href}
-              className="text-ink-soft transition-colors hover:text-ink"
+              className="text-paper/60 transition-colors hover:text-paper"
             >
               {link.label}
             </a>
@@ -34,20 +34,20 @@ export default function Nav() {
         <div className="flex items-center gap-4">
           <button
             aria-label="Buscar"
-            className="text-ink transition-opacity hover:opacity-60"
+            className="text-paper transition-opacity hover:opacity-60"
           >
             <SearchIcon />
           </button>
           <button
             aria-label="Carrito"
-            className="text-ink transition-opacity hover:opacity-60"
+            className="text-paper transition-opacity hover:opacity-60"
           >
             <CartIcon />
           </button>
           <button
             aria-label="Menú"
             onClick={() => setOpen((v) => !v)}
-            className="text-ink md:hidden"
+            className="text-paper md:hidden"
           >
             <MenuIcon open={open} />
           </button>
