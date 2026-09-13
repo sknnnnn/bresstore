@@ -11,11 +11,9 @@ export default function NewJerseys() {
         </span>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-6">
-        {newJerseys.map((product, i) => (
-          <div key={product.slug} className={i % 2 === 1 ? "md:mt-14" : undefined}>
-            <ProductCard product={product} tone={i === 2 ? "dark" : "light"} />
-          </div>
+      <div className="mt-10 grid grid-cols-2 items-start gap-x-5 gap-y-12 md:grid-cols-4 md:gap-x-6">
+        {newJerseys.map((product) => (
+          <ProductCard key={product.slug} product={product} />
         ))}
       </div>
     </section>

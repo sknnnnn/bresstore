@@ -16,7 +16,7 @@ export default function SelectionsSection() {
 
         <div className="grid grid-cols-2 gap-6 md:col-span-5 md:grid-cols-1 md:gap-8">
           <div>
-            <PhotoTile colors={italia.colors} tone="dark" flip className="aspect-[4/5] md:aspect-[16/9]" />
+            <PhotoTile colors={italia.colors} className="aspect-[4/5] md:aspect-[16/9]" />
             <p className="mt-4 font-display text-2xl tracking-tight">{italia.name}</p>
           </div>
           <div>

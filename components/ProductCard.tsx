@@ -1,17 +1,11 @@
 import PhotoTile from "./PhotoTile";
 import type { Product } from "@/lib/demo-data";
 
-export default function ProductCard({
-  product,
-  tone,
-}: {
-  product: Product;
-  tone?: "light" | "dark";
-}) {
+export default function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group">
       <a href="#" className="block">
-        <PhotoTile colors={product.colors} tone={tone} className="aspect-[3/4]" />
+        <PhotoTile colors={product.colors} className="aspect-[3/4]" />
       </a>
 
       <div className="mt-3 flex items-start justify-between gap-3">

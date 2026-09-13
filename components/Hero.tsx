@@ -33,7 +33,7 @@ export default function Hero() {
           <Grain opacity={0.09} />
           <JerseyPlaceholder
             colors={{ primary: "#f2ecdd", secondary: "#17160f", trim: "#17160f" }}
-            className="absolute inset-0 m-auto h-[78%] w-auto -translate-x-[4%] rotate-[-2deg] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+            className="absolute inset-0 m-auto h-[78%] w-auto transition-transform duration-300 ease-out group-hover:scale-[1.03]"
           />
           <p className="absolute bottom-5 left-5 right-5 text-[11px] uppercase tracking-wider text-paper/70">
             N.º 10 — 25/26
