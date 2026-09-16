@@ -1,5 +1,5 @@
 import { selections } from "@/lib/demo-data";
-import JerseyPlaceholder from "./JerseyPlaceholder";
+import JerseyVisual from "./JerseyVisual";
 
 export default function SelectionsSection() {
   return (
@@ -9,7 +9,12 @@ export default function SelectionsSection() {
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
         {selections.map((sel) => (
           <div key={sel.name} className="border border-line px-6 py-8">
-            <JerseyPlaceholder colors={sel.colors} className="mx-auto h-40 w-auto" />
+            <JerseyVisual
+              image={sel.image}
+              colors={sel.colors}
+              alt={sel.name}
+              className="mx-auto h-40 w-auto"
+            />
             <p className="mt-6 text-center font-display text-2xl tracking-tight">{sel.name}</p>
           </div>
         ))}

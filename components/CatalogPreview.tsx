@@ -1,9 +1,9 @@
 import { clubs, selections } from "@/lib/demo-data";
-import JerseyPlaceholder from "./JerseyPlaceholder";
+import JerseyVisual from "./JerseyVisual";
 
 const preview = [
-  ...clubs.map((c) => ({ name: c.name, colors: c.colors })),
-  ...selections.map((s) => ({ name: s.name, colors: s.colors })),
+  ...clubs.map((c) => ({ name: c.name, colors: c.colors, image: c.image })),
+  ...selections.map((s) => ({ name: s.name, colors: s.colors, image: s.image })),
 ];
 
 export default function CatalogPreview() {
@@ -27,7 +27,12 @@ export default function CatalogPreview() {
           {preview.map((item, i) => (
             <div key={i} className="flex w-24 shrink-0 flex-col gap-2 sm:w-28">
               <div className="flex h-32 items-center justify-center bg-[#eae7dd] sm:h-40">
-                <JerseyPlaceholder colors={item.colors} className="h-4/5 w-auto" />
+                <JerseyVisual
+                  image={item.image}
+                  colors={item.colors}
+                  alt={item.name}
+                  className="h-4/5 w-auto"
+                />
               </div>
               <p className="truncate text-center text-[10px] uppercase tracking-wider text-ink-soft">
                 {item.name}

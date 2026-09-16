@@ -1,4 +1,4 @@
-import JerseyPlaceholder from "./JerseyPlaceholder";
+import JerseyVisual from "./JerseyVisual";
 import type { Product } from "@/lib/demo-data";
 
 export default function ProductCard({ product, index }: { product: Product; index: number }) {
@@ -11,8 +11,10 @@ export default function ProductCard({ product, index }: { product: Product; inde
         <span className="absolute right-3 top-3 text-[10px] uppercase tracking-wider text-ink-soft">
           {product.season}
         </span>
-        <JerseyPlaceholder
+        <JerseyVisual
+          image={product.image}
           colors={product.colors}
+          alt={`${product.club} — ${product.name}`}
           className="h-4/5 w-auto transition-transform duration-300 group-hover:scale-[1.04]"
         />
       </div>

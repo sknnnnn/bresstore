@@ -16,6 +16,8 @@ export type Product = {
   season: string;
   priceDemo: string;
   colors: JerseyColors;
+  /** Ruta a imagen real de la camiseta. Si no está seteada, se usa JerseyPlaceholder. */
+  image?: string;
 };
 
 export const newJerseys: Product[] = [
@@ -57,6 +59,8 @@ export type ClubEntry = {
   name: string;
   country: string;
   colors: JerseyColors;
+  /** Ruta a imagen real de la camiseta. Si no está seteada, se usa JerseyPlaceholder. */
+  image?: string;
 };
 
 export const clubs: ClubEntry[] = [
@@ -90,6 +94,8 @@ export const clubs: ClubEntry[] = [
 export type SelectionEntry = {
   name: string;
   colors: JerseyColors;
+  /** Ruta a imagen real de la camiseta. Si no está seteada, se usa JerseyPlaceholder. */
+  image?: string;
 };
 
 export const selections: SelectionEntry[] = [
