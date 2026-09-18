@@ -1,4 +1,4 @@
-import type { JerseyColors } from "./demo-data";
+import type { JerseyColors } from "./types";
 
 // Contenido de DEMO del Hero — texto y colores provisorios hasta definir
 // el diseño final en Figma. Separado de la estructura/JSX para que el

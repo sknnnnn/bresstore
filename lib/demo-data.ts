@@ -1,66 +1,79 @@
 // Contenido de DEMO — nombres de clubes/selecciones son referencias reales,
 // pero nombres de producto, precios, talles y stock son placeholders
-// provisorios para poder visualizar la interfaz. No representan datos
-// comerciales reales.
+// provisorios para poder probar el flujo de compra. No representan datos
+// comerciales reales. Reemplazar `products` por el catálogo real cuando
+// esté definido — el resto del sistema (catálogo, producto, carrito,
+// WhatsApp) no depende de que estos datos sean demo o reales.
 
-export type JerseyColors = {
-  primary: string;
-  secondary: string;
-  trim: string;
-};
+import { ALL_SIZES, type JerseyColors, type Product } from "./types";
 
-export type Product = {
-  slug: string;
-  club: string;
-  name: string;
-  season: string;
-  priceDemo: string;
-  colors: JerseyColors;
-  /** Ruta a imagen real de la camiseta. Si no está seteada, se usa JerseyPlaceholder. */
-  image?: string;
-};
-
-export const newJerseys: Product[] = [
+export const products: Product[] = [
   {
     slug: "manchester-united-titular",
-    club: "Manchester United",
     name: "Camiseta Titular",
+    category: "club",
+    team: "Manchester United",
+    country: "Inglaterra",
     season: "25/26",
-    priceDemo: "$64.999",
+    price: 64999,
+    priceIsDemo: true,
+    sizes: ALL_SIZES,
     colors: { primary: "#DA020E", secondary: "#0a0a0a", trim: "#ffd700" },
+    available: true,
+    isNew: true,
   },
   {
     slug: "boca-juniors-titular",
-    club: "Boca Juniors",
     name: "Camiseta Titular",
+    category: "club",
+    team: "Boca Juniors",
+    country: "Argentina",
     season: "25/26",
-    priceDemo: "$59.999",
+    price: 59999,
+    priceIsDemo: true,
+    sizes: ALL_SIZES,
     colors: { primary: "#00317c", secondary: "#f7d117", trim: "#f7d117" },
+    available: true,
+    isNew: true,
   },
   {
     slug: "river-plate-titular",
-    club: "River Plate",
     name: "Camiseta Titular",
+    category: "club",
+    team: "River Plate",
+    country: "Argentina",
     season: "25/26",
-    priceDemo: "$59.999",
+    price: 59999,
+    priceIsDemo: true,
+    sizes: ALL_SIZES,
     colors: { primary: "#f4f2ec", secondary: "#c8102e", trim: "#0a0a0a" },
+    available: true,
+    isNew: true,
   },
   {
     slug: "palmeiras-titular",
-    club: "Palmeiras",
     name: "Camiseta Titular",
+    category: "club",
+    team: "Palmeiras",
+    country: "Brasil",
     season: "25/26",
-    priceDemo: "$57.999",
+    price: 57999,
+    priceIsDemo: true,
+    sizes: ALL_SIZES,
     colors: { primary: "#006437", secondary: "#f4f2ec", trim: "#f4f2ec" },
+    available: true,
+    isNew: true,
   },
 ];
 
+// Directorio de clubes para navegar/filtrar el catálogo desde la Home.
+// No todos tienen producto cargado todavía (ver `products` arriba) — al
+// filtrar el catálogo por un club sin productos se muestra el estado
+// vacío correspondiente, en vez de inventar una camiseta.
 export type ClubEntry = {
   name: string;
   country: string;
   colors: JerseyColors;
-  /** Ruta a imagen real de la camiseta. Si no está seteada, se usa JerseyPlaceholder. */
-  image?: string;
 };
 
 export const clubs: ClubEntry[] = [
@@ -91,11 +104,12 @@ export const clubs: ClubEntry[] = [
   },
 ];
 
+// Directorio de selecciones, mismo criterio que `clubs`: hoy no tienen
+// producto cargado, así que el catálogo filtrado por selección queda en
+// estado vacío hasta que se sume el producto real.
 export type SelectionEntry = {
   name: string;
   colors: JerseyColors;
-  /** Ruta a imagen real de la camiseta. Si no está seteada, se usa JerseyPlaceholder. */
-  image?: string;
 };
 
 export const selections: SelectionEntry[] = [

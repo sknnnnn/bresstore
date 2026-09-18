@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Anton, Inter } from "next/font/google";
 import "./globals.css";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import { CartProvider } from "@/components/cart/CartContext";
+import CartDrawer from "@/components/cart/CartDrawer";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -14,7 +18,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bresstore — Camisetas para los que viven el fútbol",
+  title: {
+    default: "Bresstore — Camisetas para los que viven el fútbol",
+    template: "%s | Bresstore",
+  },
   description:
     "Bresstore es una tienda de camisetas de fútbol que recién está empezando. Clubes, selecciones y retro.",
 };
@@ -26,7 +33,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${anton.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink font-sans">
-        {children}
+        <CartProvider>
+          <Nav />
+          {children}
+          <Footer />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

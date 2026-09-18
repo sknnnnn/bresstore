@@ -1,4 +1,11 @@
-const NAV = ["Camisetas", "Clubes", "Selecciones", "Retro"];
+import Link from "next/link";
+
+const NAV = [
+  { label: "Camisetas", href: "/catalogo" },
+  { label: "Clubes", href: "/clubes" },
+  { label: "Selecciones", href: "/selecciones" },
+  { label: "Retro", href: "/retro" },
+];
 const SOCIAL = ["Instagram", "TikTok", "Contacto"];
 
 export default function Footer() {
@@ -18,10 +25,10 @@ export default function Footer() {
               <p className="text-xs uppercase tracking-wider text-ink-soft">Tienda</p>
               <ul className="mt-3 space-y-2 text-sm">
                 {NAV.map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:underline">
-                      {item}
-                    </a>
+                  <li key={item.label}>
+                    <Link href={item.href} className="hover:underline">
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

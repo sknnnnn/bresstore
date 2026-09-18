@@ -1,48 +1,71 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCart } from "@/components/cart/CartContext";
 
 const LINKS = [
-  { label: "Camisetas", href: "#nuevas-camisetas" },
-  { label: "Clubes", href: "#clubes" },
-  { label: "Selecciones", href: "#selecciones" },
-  { label: "Retro", href: "#" },
+  { label: "Camisetas", href: "/catalogo" },
+  { label: "Clubes", href: "/clubes" },
+  { label: "Selecciones", href: "/selecciones" },
+  { label: "Retro", href: "/retro" },
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const router = useRouter();
+  const { count, open: openCart } = useCart();
+
+  function handleSearchSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const query = searchValue.trim();
+    router.push(query ? `/catalogo?q=${encodeURIComponent(query)}` : "/catalogo");
+    setSearchOpen(false);
+    setSearchValue("");
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:px-8">
-        <a href="#" className="font-display text-2xl tracking-tight">
+        <Link href="/" className="font-display text-2xl tracking-tight">
           BRESSTORE
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wide">
           {LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className="text-ink-soft transition-colors hover:text-ink"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-4">
           <button
             aria-label="Buscar"
+            aria-expanded={searchOpen}
+            onClick={() => setSearchOpen((v) => !v)}
             className="text-ink transition-opacity hover:opacity-60"
           >
             <SearchIcon />
           </button>
           <button
-            aria-label="Carrito"
-            className="text-ink transition-opacity hover:opacity-60"
+            aria-label={`Carrito${count > 0 ? ` (${count} producto${count === 1 ? "" : "s"})` : ""}`}
+            onClick={openCart}
+            className="relative text-ink transition-opacity hover:opacity-60"
           >
             <CartIcon />
+            {count > 0 ? (
+              <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center bg-accent text-[10px] font-medium text-ink">
+                {count}
+              </span>
+            ) : null}
           </button>
           <button
             aria-label="Menú"
@@ -54,17 +77,37 @@ export default function Nav() {
         </div>
       </div>
 
+      {searchOpen ? (
+        <form
+          onSubmit={handleSearchSubmit}
+          className="border-t border-line px-5 py-3 md:px-8"
+        >
+          <label htmlFor="nav-search" className="sr-only">
+            Buscar camisetas
+          </label>
+          <input
+            id="nav-search"
+            type="search"
+            autoFocus
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            placeholder="Buscar por nombre, club o selección…"
+            className="w-full border border-line bg-paper px-4 py-2 text-sm text-ink placeholder:text-ink-soft focus:border-ink focus:outline-none"
+          />
+        </form>
+      ) : null}
+
       {open ? (
         <nav className="flex flex-col border-t border-line px-5 py-4 text-sm font-medium uppercase tracking-wide md:hidden">
           {LINKS.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               onClick={() => setOpen(false)}
               className="border-b border-line/70 py-3 last:border-none"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       ) : null}

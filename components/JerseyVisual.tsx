@@ -1,5 +1,5 @@
 import JerseyPlaceholder from "./JerseyPlaceholder";
-import type { JerseyColors } from "@/lib/demo-data";
+import type { JerseyColors } from "@/lib/types";
 
 export default function JerseyVisual({
   image,

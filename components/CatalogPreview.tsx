@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { clubs, selections } from "@/lib/demo-data";
 import JerseyVisual from "./JerseyVisual";
 
 const preview = [
-  ...clubs.map((c) => ({ name: c.name, colors: c.colors, image: c.image })),
-  ...selections.map((s) => ({ name: s.name, colors: s.colors, image: s.image })),
+  ...clubs.map((c) => ({ name: c.name, colors: c.colors })),
+  ...selections.map((s) => ({ name: s.name, colors: s.colors })),
 ];
 
 export default function CatalogPreview() {
@@ -14,35 +15,34 @@ export default function CatalogPreview() {
           <h2 className="font-display text-4xl tracking-tight md:text-6xl">
             TODAS LAS CAMISETAS
           </h2>
-          <a
-            href="#"
+          <Link
+            href="/catalogo"
             className="inline-flex items-center gap-2 border-b-2 border-ink pb-1 font-display text-lg tracking-wide"
           >
             Ver catálogo
             <span aria-hidden>→</span>
-          </a>
+          </Link>
         </div>
 
         <div className="mt-8 flex gap-4 overflow-x-auto pb-2">
-          {preview.map((item, i) => (
-            <div key={i} className="flex w-24 shrink-0 flex-col gap-2 sm:w-28">
+          {preview.map((item) => (
+            <Link
+              key={item.name}
+              href={`/catalogo?team=${encodeURIComponent(item.name)}`}
+              className="flex w-24 shrink-0 flex-col gap-2 sm:w-28"
+            >
               <div className="flex h-32 items-center justify-center bg-[#eae7dd] sm:h-40">
-                <JerseyVisual
-                  image={item.image}
-                  colors={item.colors}
-                  alt={item.name}
-                  className="h-4/5 w-auto"
-                />
+                <JerseyVisual colors={item.colors} alt={item.name} className="h-4/5 w-auto" />
               </div>
               <p className="truncate text-center text-[10px] uppercase tracking-wider text-ink-soft">
                 {item.name}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
 
         <p className="mt-4 text-xs uppercase tracking-wider text-ink-soft">
-          Vista previa — catálogo completo en construcción
+          Vista previa — hacé click para ver el catálogo completo
         </p>
       </div>
     </section>
