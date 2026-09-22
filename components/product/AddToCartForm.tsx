@@ -33,6 +33,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       <SizeSelector
         sizes={product.sizes}
+        unavailableSizes={product.unavailableSizes}
         value={size}
         error={sizeError}
         onChange={(s) => {

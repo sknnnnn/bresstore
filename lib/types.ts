@@ -32,6 +32,12 @@ export type Product = {
   /** Ruta a imagen real. Si no está seteada, se usa JerseyPlaceholder. */
   image?: string;
   available: boolean;
+  /**
+   * Talles de `sizes` sin stock puntual. Los talles que no aparezcan acá
+   * se consideran disponibles. Ningún producto de demo lo usa todavía —
+   * no inventar valores; agregar solo cuando haya stock real por talle.
+   */
+  unavailableSizes?: Size[];
   /** Se muestra en la sección "Nuevas camisetas" de la Home. */
   isNew?: boolean;
 };
