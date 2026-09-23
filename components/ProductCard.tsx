@@ -4,14 +4,17 @@ import { formatPrice } from "@/lib/format";
 import type { Product } from "@/lib/types";
 
 export default function ProductCard({ product, index }: { product: Product; index: number }) {
+  // Sobre una foto, las etiquetas necesitan fondo para mantener legibilidad.
+  const chip = product.image ? "bg-paper px-1.5 py-0.5" : "";
+
   return (
     <Link href={`/producto/${product.slug}`} className="group block border-t border-line pt-4">
       <article>
-        <div className="relative flex aspect-[4/5] items-center justify-center bg-[#eae7dd] px-6">
-          <span className="absolute left-3 top-3 font-display text-xs tracking-widest text-ink-soft">
+        <div className={`relative flex aspect-[4/5] items-center justify-center bg-[#eae7dd] ${product.image ? "overflow-hidden" : "px-6"}`}>
+          <span className={`absolute left-3 top-3 font-display text-xs tracking-widest text-ink-soft ${chip}`}>
             0{index + 1}
           </span>
-          <span className="absolute right-3 top-3 text-[10px] uppercase tracking-wider text-ink-soft">
+          <span className={`absolute right-3 top-3 text-[10px] uppercase tracking-wider text-ink-soft ${chip}`}>
             {product.season}
           </span>
           {!product.available ? (
@@ -23,7 +26,7 @@ export default function ProductCard({ product, index }: { product: Product; inde
             image={product.image}
             colors={product.colors}
             alt={`${product.team} — ${product.name}`}
-            className="h-4/5 w-auto transition-transform duration-300 group-hover:scale-[1.04]"
+            className={`${product.image ? "h-full w-full" : "h-4/5 w-auto"} transition-transform duration-300 group-hover:scale-[1.04]`}
           />
         </div>
 

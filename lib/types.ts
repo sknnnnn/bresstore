@@ -31,6 +31,8 @@ export type Product = {
   colors: JerseyColors;
   /** Ruta a imagen real. Si no está seteada, se usa JerseyPlaceholder. */
   image?: string;
+  /** Foto trasera. Si está seteada, la ficha de producto muestra el selector Frente/Espalda. */
+  imageBack?: string;
   available: boolean;
   /**
    * Talles de `sizes` sin stock puntual. Los talles que no aparezcan acá
