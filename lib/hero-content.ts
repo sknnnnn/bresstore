@@ -16,15 +16,14 @@ export type HeroContent = {
   badge: string;
   headingLines: string[];
   cta: { label: string; href: string };
-  meta: string;
+  meta?: string;
   visual: HeroVisualContent;
 };
 
 export const heroContent: HeroContent = {
   badge: "Temporada 25/26",
   headingLines: ["CAMISETAS", "PARA LOS QUE", "VIVEN EL FÚTBOL."],
-  cta: { label: "Ver camisetas", href: "#nuevas-camisetas" },
-  meta: "Clubes · Selecciones · Retro",
+  cta: { label: "Ver catálogo", href: "/catalogo" },
   visual: {
     label: "N.º 10",
     number: "10",

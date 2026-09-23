@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import Link from "next/link";
 
 // Bloque de texto/CTA del Hero (columna izquierda). Presentacional puro:
 // recibe el contenido por props, no conoce de dónde viene el copy.
@@ -14,7 +15,7 @@ export default function HeroContent({
   badge: string;
   headingLines: string[];
   cta: { label: string; href: string };
-  meta: string;
+  meta?: string;
 }) {
   return (
     <div className={className}>
@@ -32,16 +33,18 @@ export default function HeroContent({
       </h1>
 
       <div className="mt-8 flex items-center gap-6">
-        <a
+        <Link
           href={cta.href}
           className="inline-flex items-center gap-2 border-b-2 border-ink pb-1 font-display text-lg tracking-wide"
         >
           {cta.label}
           <span aria-hidden>→</span>
-        </a>
-        <span className="hidden text-xs uppercase tracking-wider text-ink-soft sm:inline">
-          {meta}
-        </span>
+        </Link>
+        {meta ? (
+          <span className="hidden text-xs uppercase tracking-wider text-ink-soft sm:inline">
+            {meta}
+          </span>
+        ) : null}
       </div>
     </div>
   );
