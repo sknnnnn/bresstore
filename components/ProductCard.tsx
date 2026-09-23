@@ -10,7 +10,7 @@ export default function ProductCard({ product, index }: { product: Product; inde
   return (
     <Link href={`/producto/${product.slug}`} className="group block border-t border-line pt-4">
       <article>
-        <div className={`relative flex aspect-[4/5] items-center justify-center bg-[#eae7dd] ${product.image ? "overflow-hidden" : "px-6"}`}>
+        <div className={`relative flex aspect-[4/5] items-center justify-center bg-[#eae7dd] ${product.image ? "overflow-hidden outline outline-1 -outline-offset-1 outline-line" : "px-6"}`}>
           <span className={`absolute left-3 top-3 font-display text-xs tracking-widest text-ink-soft ${chip}`}>
             0{index + 1}
           </span>

@@ -53,7 +53,7 @@ export default function ProductImages({ product }: { product: Product }) {
       ) : null}
 
       <div
-        className={`flex items-center justify-center bg-[#eae7dd] ${hasImage ? "" : "py-16"}`}
+        className={`flex items-center justify-center bg-[#eae7dd] ${hasImage ? "outline outline-1 -outline-offset-1 outline-line" : "py-16"}`}
       >
         <div className={view === "front" || !product.imageBack ? "contents" : "hidden"}>
           {visual(product.image, alt)}
